@@ -8,7 +8,8 @@ public enum CommandConstants {
     TASK_LIST("/tasks", "Display list of tasks", "🔖"),
     TASK_ADD("/add", "Add a new task", "📝"),
     TASK_DELETE("/del", "Delete an existing task by task id", "🗑"),
-    TASK_HELP("/help", "Display list of commands", "❓");
+    HELP("/help", "Display list of commands", "❓"),
+    ABOUT("/about", "About the application", "ℹ️");
 
     private String command;
     private String description;

@@ -11,7 +11,7 @@
     <groupId>dev.mrkevr</groupId>
     <artifactId>task-bot</artifactId>
     <version>1.0</version>
-    <name>task-bot</name>
+    <name>Task Bot</name>
     <description>The Task Bot provides a simple interface to manage tasks. The bot allows you to create, delete and display your tasks.</description>
     <url/>
     <licenses>
@@ -80,6 +80,12 @@
     </dependencies>
 
     <build>
+        <resources>
+            <resource>
+                <directory>src/main/resources</directory>
+                <filtering>true</filtering>
+            </resource>
+        </resources>
         <plugins>
             <plugin>
                 <groupId>org.springframework.boot</groupId>

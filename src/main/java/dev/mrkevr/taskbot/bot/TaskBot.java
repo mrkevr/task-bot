@@ -1,5 +1,6 @@
 package dev.mrkevr.taskbot.bot;
 
+import dev.mrkevr.taskbot.config.ProjectInfo;
 import dev.mrkevr.taskbot.config.BotConfig;
 import dev.mrkevr.taskbot.constant.CommandConstants;
 import dev.mrkevr.taskbot.entity.Task;
@@ -27,6 +28,7 @@ public class TaskBot extends TelegramLongPollingBot {
 
     private final BotConfig botConfig;
     private final TaskService taskService;
+    private final ProjectInfo projectInfo;
     private final DateTimeFormatter DATE_FORMATTER = DateTimeFormatter.ofPattern("MMMM d, yyyy");
 
     @Override
@@ -73,8 +75,11 @@ public class TaskBot extends TelegramLongPollingBot {
             log.info(message);
             execute(new SendMessage(chatId, message));
 
-        } else if(command.startsWith(TASK_HELP.getCommand())) {
+        } else if(command.startsWith(HELP.getCommand())) {
             execute(new SendMessage(chatId, this.breakDownHelp()));
+
+        } else if(command.startsWith(ABOUT.getCommand())) {
+            execute(new SendMessage(chatId, this.breakdownAbout()));
 
         } else {
             execute(new SendMessage(chatId, "Invalid command : " + command + "\n /help for command list"));
@@ -99,6 +104,14 @@ public class TaskBot extends TelegramLongPollingBot {
                     .append(" " + commandConstants.getDescription())
                     .append(" " + commandConstants.getCommand() + "\n");
         }
+        return sb.toString();
+    }
+
+    private String breakdownAbout(){
+        StringBuilder sb = new StringBuilder();
+        sb.append(String.format("%s %s: %s", "📛", "Name", projectInfo.getAppName()));
+        sb.append(String.format("\n%s %s: %s", "🛠", "Version", projectInfo.getApppVersion()));
+        sb.append(String.format("\n%s %s: %s", "ℹ️", "Description", projectInfo.getAppDescription()));
         return sb.toString();
     }
 }
