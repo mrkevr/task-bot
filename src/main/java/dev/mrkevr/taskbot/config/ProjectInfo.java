@@ -14,7 +14,7 @@ public class ProjectInfo {
     private String appName;
 
     @Value("${spring.application.version}")
-    private String apppVersion;
+    private String appVersion;
 
     @Value("${spring.application.description}")
     private String appDescription;

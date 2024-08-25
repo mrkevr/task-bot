@@ -100,9 +100,7 @@ public class TaskBot extends TelegramLongPollingBot {
     private String breakDownHelp() {
         StringBuilder sb = new StringBuilder();
         for(CommandConstants commandConstants : CommandConstants.values()) {
-            sb.append(commandConstants.getIcon())
-                    .append(" " + commandConstants.getDescription())
-                    .append(" " + commandConstants.getCommand() + "\n");
+            sb.append(commandConstants.getIcon()).append(" ").append(commandConstants.getDescription()).append(" ").append(commandConstants.getCommand()).append("\n");
         }
         return sb.toString();
     }
@@ -110,7 +108,7 @@ public class TaskBot extends TelegramLongPollingBot {
     private String breakdownAbout(){
         StringBuilder sb = new StringBuilder();
         sb.append(String.format("%s %s: %s", "📛", "Name", projectInfo.getAppName()));
-        sb.append(String.format("\n%s %s: %s", "🛠", "Version", projectInfo.getApppVersion()));
+        sb.append(String.format("\n%s %s: %s", "🛠", "Version", projectInfo.getAppVersion()));
         sb.append(String.format("\n%s %s: %s", "ℹ️", "Description", projectInfo.getAppDescription()));
         return sb.toString();
     }

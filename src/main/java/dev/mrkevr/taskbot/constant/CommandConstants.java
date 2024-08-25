@@ -11,9 +11,9 @@ public enum CommandConstants {
     HELP("/help", "Display list of commands", "❓"),
     ABOUT("/about", "About the application", "ℹ️");
 
-    private String command;
-    private String description;
-    private String icon;
+    private final String command;
+    private final String description;
+    private final String icon;
 
     CommandConstants(String command, String description, String icon) {
         this.command = command;
